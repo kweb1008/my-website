@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KARTIK RESTAURANT | Where Flavour Meets Passion</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display for headers & Plus Jakarta Sans for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: '#6B0D1E',
+                        'burgundy-dark': '#4A0814',
+                        'burgundy-light': '#8C152B',
+                        gold: '#C59B27',
+                        'gold-light': '#E8C766',
+                        'gold-dark': '#9A771C',
+                        ivory: '#FAF8F5',
+                        charcoal: '#1E2229',
+                        slatebody: '#4A5260'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF8F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C59B27;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6B0D1E;
+        }
+        .hero-slide {
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(197, 155, 39, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-white text-charcoal font-sans antialiased selection:bg-gold selection:text-white leading-relaxed">
+
+    <!-- Sticky Navigation Bar -->
+    <header id="navbar" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md transition-all duration-300 border-b border-stone-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-full bg-burgundy text-gold flex items-center justify-center font-serif text-xl font-bold border-2 border-gold group-hover:scale-105 transition-transform">
+                        K
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-burgundy">KARTIK</span>
+                        <span class="text-[9px] tracking-[0.25em] text-gold uppercase font-semibold">Restaurant</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                    <a href="#home" class="text-burgundy hover:text-gold transition-colors font-semibold">Home</a>
+                    <a href="#about" class="text-charcoal hover:text-burgundy transition-colors">About Us</a>
+                    <a href="#specialities" class="text-charcoal hover:text-burgundy transition-colors">Specialities</a>
+                    <a href="#menu" class="text-charcoal hover:text-burgundy transition-colors">Menu</a>
+                    <a href="#gallery" class="text-charcoal hover:text-burgundy transition-colors">Gallery</a>
+                    <a href="#reservations" class="text-charcoal hover:text-burgundy transition-colors">Reservations</a>
+                    <a href="#contact" class="text-charcoal hover:text-burgundy transition-colors">Contact</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <!-- Cart Button -->
+                    <button onclick="toggleCartDrawer()" class="relative p-2 text-charcoal hover:text-burgundy transition-colors">
+                        <i class="fa-solid fa-utensils text-xl"></i>
+                        <span id="cartBadgeCount" class="absolute -top-1 -right-1 bg-burgundy text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">0</span>
+                    </button>
+
+                    <!-- Reserve CTA Button -->
+                    <a href="#reservations" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-burgundy hover:bg-burgundy-light transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                        <i class="fa-regular fa-calendar-check mr-2"></i> Book a Table
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex items-center space-x-3 lg:hidden">
+                    <button onclick="toggleCartDrawer()" class="relative p-2 text-charcoal">
+                        <i class="fa-solid fa-utensils text-lg"></i>
+                        <span id="cartBadgeCountMobile" class="absolute -top-1 -right-1 bg-burgundy text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="p-2 rounded-lg text-charcoal hover:bg-stone-100 transition-colors">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileDrawer" class="hidden lg:hidden bg-white border-b border-stone-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-burgundy font-semibold">Home</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:bg-ivory">About Us</a>
+            <a href="#specialities" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:bg-ivory">Specialities</a>
+            <a href="#menu" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:bg-ivory">Menu</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:bg-ivory">Gallery</a>
+            <a href="#reservations" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:bg-ivory">Reservations</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-charcoal hover:bg-ivory">Contact</a>
+            <div class="pt-2">
+                <a href="#reservations" onclick="toggleMobileMenu()" class="block w-full text-center px-4 py-3 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-burgundy">Book a Table</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Slider Section -->
+    <section id="home" class="relative w-full h-[88vh] min-h-[580px] bg-ivory overflow-hidden">
+        <!-- Slide 1 -->
+        <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-1000 flex items-center">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=1600&auto=format&fit=crop');"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
+                <div class="max-w-xl space-y-6">
+                    <span class="inline-block text-gold text-xs font-bold tracking-[0.3em] uppercase bg-gold/10 px-3 py-1.5 rounded-full border border-gold/20">Authentic Luxury Dining</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-burgundy leading-tight">
+                        Where Flavours <br><span class="italic font-normal text-gold">Meet Passion.</span>
+                    </h1>
+                    <p class="text-slatebody text-base sm:text-lg">
+                        Experience authentic Indian cuisine crafted with passion, royal heritage spices, and served with signature warmth.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#menu" class="px-7 py-3.5 rounded-full bg-burgundy hover:bg-burgundy-light text-white text-sm font-semibold tracking-wider transition-all shadow-md hover:shadow-lg">Explore Menu</a>
+                        <a href="#reservations" class="px-7 py-3.5 rounded-full border-2 border-burgundy text-burgundy hover:bg-burgundy hover:text-white text-sm font-semibold tracking-wider transition-all">Book a Table</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex items-center">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop');"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
+                <div class="max-w-xl space-y-6">
+                    <span class="inline-block text-gold text-xs font-bold tracking-[0.3em] uppercase bg-gold/10 px-3 py-1.5 rounded-full border border-gold/20">Mughlai & Tandoori Delights</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-burgundy leading-tight">
+                        A Taste You'll <br><span class="italic font-normal text-gold">Remember Forever.</span>
+                    </h1>
+                    <p class="text-slatebody text-base sm:text-lg">
+                        From aromatic slow-cooked biryanis to perfectly charred succulent kebabs, discover unforgettable royal flavors.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#menu" class="px-7 py-3.5 rounded-full bg-burgundy hover:bg-burgundy-light text-white text-sm font-semibold tracking-wider transition-all shadow-md">View Our Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex items-center">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop');"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
+                <div class="max-w-xl space-y-6">
+                    <span class="inline-block text-gold text-xs font-bold tracking-[0.3em] uppercase bg-gold/10 px-3 py-1.5 rounded-full border border-gold/20">Family & Celebration Dining</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-burgundy leading-tight">
+                        Good Food. <br><span class="italic font-normal text-gold">Great Moments.</span>
+                    </h1>
+                    <p class="text-slatebody text-base sm:text-lg">
+                        Make every family dinner, corporate lunch, and special anniversary celebration truly extraordinary with us.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#reservations" class="px-7 py-3.5 rounded-full bg-gold hover:bg-gold-dark text-white text-sm font-semibold tracking-wider transition-all shadow-md">Reserve Your Table</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex items-center space-x-3 z-10">
+            <button onclick="setSlide(0)" class="slide-dot w-3 h-3 rounded-full bg-burgundy transition-all"></button>
+            <button onclick="setSlide(1)" class="slide-dot w-3 h-3 rounded-full bg-stone-300 transition-all"></button>
+            <button onclick="setSlide(2)" class="slide-dot w-3 h-3 rounded-full bg-stone-300 transition-all"></button>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section id="about" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <!-- Imagery Stack -->
+                <div class="relative">
+                    <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop" alt="Kartik Restaurant Ambience" class="w-full h-[450px] object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute -bottom-8 -right-6 z-20 hidden sm:block w-56 h-56 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=500&auto=format&fit=crop" alt="Indian Chef Crafting Dishes" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Decorative Badge -->
+                    <div class="absolute -top-6 -left-6 z-20 bg-ivory border-2 border-gold/40 p-5 rounded-2xl shadow-xl text-center hidden sm:block">
+                        <span class="block font-serif text-3xl font-bold text-burgundy">25+</span>
+                        <span class="text-xs font-semibold text-gold uppercase tracking-wider">Years of Culinary<br>Excellence</span>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2">
+                        <span class="w-8 h-0.5 bg-gold"></span>
+                        <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase">Welcome To Kartik</span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-burgundy">
+                        Traditional Recipes Meets Modern Hospitality.
+                    </h2>
+                    <p class="text-slatebody text-base sm:text-lg leading-relaxed">
+                        Step into a world where age-old secret spice blends meet pristine culinary standards. Our kitchen brings together carefully selected ingredients, hand-ground spices, and generations of culinary inspiration to create memorable dining experiences for you and your family.
+                    </p>
+                    <p class="text-slatebody text-sm sm:text-base leading-relaxed">
+                        Whether you are craving rich Mughlai gravies, fiery Tandoori starters, aromatic dum biryanis, or contemporary Indo-Chinese creations, our master chefs prepare every dish with uncompromising devotion.
+                    </p>
+                    <div class="pt-4 flex items-center space-x-6">
+                        <a href="#specialities" class="px-7 py-3.5 rounded-full bg-burgundy hover:bg-burgundy-light text-white text-xs font-semibold uppercase tracking-wider transition-all shadow-md">
+                            Discover Our Story
+                        </a>
+                        <div class="flex items-center space-x-3 border-l border-stone-200 pl-6">
+                            <i class="fa-solid fa-utensils text-gold text-2xl"></i>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-charcoal">100% Authentic</h4>
+                                <p class="text-xs text-stone-500">Pure Taste Guarantee</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurant Experience Section -->
+    <section class="py-20 bg-ivory border-y border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold tracking-[0.25em] text-gold uppercase">The Kartik Promise</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-burgundy">Eat Good. Feel Good.</h2>
+                <p class="text-slatebody text-sm sm:text-base">We prioritize health, warmth, and culinary precision in every meal served.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-full bg-burgundy/10 text-burgundy flex items-center justify-center text-2xl mb-6 group-hover:bg-burgundy group-hover:text-gold transition-colors">
+                        <i class="fa-solid fa-pepper-hot"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-charcoal mb-3">Authentic Flavours</h3>
+                    <p class="text-slatebody text-sm">
+                        Traditional recipes prepared with farm-fresh organic produce and hand-ground royal spices imported directly from origin farms.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-full bg-gold/10 text-gold flex items-center justify-center text-2xl mb-6 group-hover:bg-gold group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-couch"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-charcoal mb-3">Warm Ambience</h3>
+                    <p class="text-slatebody text-sm">
+                        A comfortable, opulent, and relaxed environment curated specifically for warm family dinners, business lunches, and joyful group celebrations.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-full bg-burgundy/10 text-burgundy flex items-center justify-center text-2xl mb-6 group-hover:bg-burgundy group-hover:text-gold transition-colors">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-charcoal mb-3">Exceptional Service</h3>
+                    <p class="text-slatebody text-sm">
+                        Courteous, knowledgeable, and attentive staff dedicated to making your visit comfortable, memorable, and effortlessly enjoyable.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Specialities Section -->
+    <section id="specialities" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div class="space-y-3">
+                    <span class="text-xs font-bold tracking-[0.25em] text-gold uppercase">Handcrafted Masterpieces</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-burgundy">Our Specialities</h2>
+                </div>
+                <!-- Tabs -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0 bg-ivory p-1.5 rounded-full border border-stone-200">
+                    <button onclick="filterSpeciality('all')" class="spec-tab px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-burgundy text-white transition-all">All</button>
+                    <button onclick="filterSpeciality('indian')" class="spec-tab px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-stone-600 hover:text-burgundy transition-all">Indian</button>
+                    <button onclick="filterSpeciality('mughlai')" class="spec-tab px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-stone-600 hover:text-burgundy transition-all">Mughlai</button>
+                    <button onclick="filterSpeciality('chinese')" class="spec-tab px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-stone-600 hover:text-burgundy transition-all">Chinese</button>
+                </div>
+            </div>
+
+            <!-- Specialities Grid -->
+            <div id="specialitiesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Items populated via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-24 bg-ivory border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                <span class="text-xs font-bold tracking-[0.25em] text-gold uppercase">Explore Delicacies</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-burgundy">Interactive Digital Menu</h2>
+                <p class="text-slatebody text-sm">Select a category or search for your favorite Indian and fusion creations.</p>
+            </div>
+
+            <!-- Search Bar & Filters -->
+            <div class="mb-10 max-w-xl mx-auto">
+                <div class="relative">
+                    <input type="text" id="menuSearchInput" onkeyup="searchMenu()" placeholder="Search dishes (e.g. Biryani, Paneer, Kebabs)..." class="w-full px-5 py-3.5 pl-12 rounded-full bg-white border border-stone-300 text-sm text-charcoal focus:outline-none focus:border-gold shadow-sm">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-stone-400"></i>
+                </div>
+            </div>
+
+            <!-- Category Pills -->
+            <div class="flex items-center justify-start lg:justify-center overflow-x-auto gap-3 pb-6 mb-8 scrollbar-none" id="menuCategories">
+                <!-- Category Buttons populated by JS -->
+            </div>
+
+            <!-- Menu Dish List -->
+            <div id="menuItemsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Rendered dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Dish Spotlight -->
+    <section class="py-20 bg-burgundy text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#C59B27_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="inline-block text-gold text-xs font-bold tracking-[0.3em] uppercase bg-white/10 px-3 py-1.5 rounded-full border border-gold/30">Chef's Masterpiece</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold leading-tight">
+                        The Signature <br><span class="text-gold italic font-normal">Royal Kartik Biryani</span>
+                    </h2>
+                    <p class="text-stone-200 text-base leading-relaxed">
+                        Slow-cooked in authentic clay handis using extra-long fragrant Basmati rice, 24-karat saffron infusion, and succulent meat marinated overnight in hand-ground Mughlai spices.
+                    </p>
+                    <div class="grid grid-cols-3 gap-4 py-3 border-y border-white/10 text-center">
+                        <div>
+                            <span class="block text-gold font-bold text-lg">12 Hrs</span>
+                            <span class="text-[10px] text-stone-300 uppercase tracking-wider">Marination</span>
+                        </div>
+                        <div>
+                            <span class="block text-gold font-bold text-lg">Fragrant Dum</span>
+                            <span class="text-[10px] text-stone-300 uppercase tracking-wider">Slow Cooked</span>
+                        </div>
+                        <div>
+                            <span class="block text-gold font-bold text-lg">Authentic</span>
+                            <span class="text-[10px] text-stone-300 uppercase tracking-wider">Royal Spice</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <button onclick="addSignatureToCart()" class="px-8 py-3.5 rounded-full bg-gold hover:bg-gold-light text-burgundy font-bold text-xs uppercase tracking-wider transition-all shadow-lg">
+                            Order Now (₹480)
+                        </button>
+                        <a href="#menu" class="px-8 py-3.5 rounded-full border border-white/30 text-white hover:bg-white/10 font-bold text-xs uppercase tracking-wider transition-all">
+                            View Full Menu
+                        </a>
+                    </div>
+                </div>
+                <!-- Dish Image -->
+                <div class="relative">
+                    <div class="rounded-2xl overflow-hidden border-4 border-gold/30 shadow-2xl group">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=800&auto=format&fit=crop" alt="The Signature Kartik Biryani" class="w-full h-[420px] object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold tracking-[0.25em] text-gold uppercase">Visual Feast</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-burgundy">Restaurant Gallery</h2>
+                <p class="text-slatebody text-sm">Take a glimpse inside our kitchen, dining hall, signature dishes, and private moments.</p>
+            </div>
+
+            <!-- Masonry Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="galleryContainer">
+                <!-- Dynamic images injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Lightbox Modal -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-gold transition-colors z-50">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightboxImage" src="" alt="Gallery Lightbox" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl">
+    </div>
+
+    <!-- Customer Testimonials -->
+    <section class="py-24 bg-ivory border-y border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold tracking-[0.25em] text-gold uppercase">Guest Experiences</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-burgundy">What Our Guests Say</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="testimonialsGrid">
+                <!-- Static reviews loaded -->
+                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm relative space-y-4">
+                    <div class="flex text-gold space-x-1 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slatebody text-sm italic">
+                        “Beautiful ambience, delicious food and excellent service. Definitely coming back for family gatherings!”
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-burgundy/10 text-burgundy font-bold flex items-center justify-center font-serif">
+                            RS
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-charcoal">Rajesh Sharma</h4>
+                            <span class="text-[10px] text-stone-400">Regular Patron</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm relative space-y-4">
+                    <div class="flex text-gold space-x-1 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slatebody text-sm italic">
+                        “Absolutely loved the signature biryani. Great taste, generous portions and wonderful hospitality.”
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-gold/20 text-gold-dark font-bold flex items-center justify-center font-serif">
+                            AP
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-charcoal">Ananya Patel</h4>
+                            <span class="text-[10px] text-stone-400">Food Blogger</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm relative space-y-4">
+                    <div class="flex text-gold space-x-1 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slatebody text-sm italic">
+                        “Perfect place for a family dinner. The Dal Makhani and Garlic Naan were unmatched in town.”
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-burgundy/10 text-burgundy font-bold flex items-center justify-center font-serif">
+                            MK
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-charcoal">Manish Kapoor</h4>
+                            <span class="text-[10px] text-stone-400">Local Guide</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table Reservation Section -->
+    <section id="reservations" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-ivory rounded-3xl border border-stone-200 p-8 sm:p-12 lg:p-16 shadow-lg">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <div class="space-y-6">
+                        <span class="text-xs font-bold tracking-[0.25em] text-gold uppercase">Seamless Booking</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-burgundy">Reserve Your Table</h2>
+                        <p class="text-slatebody text-sm sm:text-base">
+                            Planning a special dinner, birthday party, or intimate gathering? Reserve your table now and let us take care of every minor detail.
+                        </p>
+                        <div class="space-y-3 pt-2">
+                            <div class="flex items-center space-x-3 text-sm text-slatebody">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>Instant Confirmation via SMS/Email</span>
+                            </div>
+                            <div class="flex items-center space-x-3 text-sm text-slatebody">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>Special Seating & Dietary Requests accommodated</span>
+                            </div>
+                            <div class="flex items-center space-x-3 text-sm text-slatebody">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>No Advance Cancellation Fees</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Booking Form -->
+                    <form id="reservationForm" onsubmit="handleReservationSubmit(event)" class="bg-white p-6 sm:p-8 rounded-2xl border border-stone-200 shadow-md space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-charcoal mb-1 uppercase">Full Name</label>
+                                <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-burgundy">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-charcoal mb-1 uppercase">Phone Number</label>
+                                <input type="tel" required placeholder="+91 98765 43210" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-burgundy">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-charcoal mb-1 uppercase">Email Address</label>
+                                <input type="email" required placeholder="john@example.com" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-burgundy">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-charcoal mb-1 uppercase">Guests</label>
+                                <select required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-burgundy">
+                                    <option value="2">2 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                    <option value="6">6 Guests</option>
+                                    <option value="8">8+ Guests (Party)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-charcoal mb-1 uppercase">Date</label>
+                                <input type="date" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-burgundy">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-charcoal mb-1 uppercase">Time Slot</label>
+                                <select required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-burgundy">
+                                    <option value="12:30 PM">12:30 PM (Lunch)</option>
+                                    <option value="02:00 PM">02:00 PM (Lunch)</option>
+                                    <option value="07:30 PM">07:30 PM (Dinner)</option>
+                                    <option value="09:00 PM">09:00 PM (Dinner)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-charcoal mb-1 uppercase">Special Requests</label>
+                            <textarea rows="2" placeholder="Anniversary table, high chair, spicy food..." class="w-full px-4 py-2 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-burgundy"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-burgundy hover:bg-burgundy-light text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md">
+                            Check Availability & Book
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Confirmation Modal -->
+    <div id="bookingModal" class="fixed inset-0 z-50 bg-black/60 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 text-center space-y-4 shadow-2xl border border-stone-200">
+            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto text-3xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-burgundy">Table Reserved!</h3>
+            <p class="text-slatebody text-sm">
+                Thank you! Your table reservation at Kartik Restaurant has been confirmed. A confirmation SMS & email with your table details has been sent.
+            </p>
+            <button onclick="closeBookingModal()" class="w-full py-3 rounded-full bg-burgundy text-white font-bold text-xs uppercase tracking-wider">
+                Awesome, Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Events & Celebrations -->
+    <section class="py-20 bg-ivory">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold tracking-[0.25em] text-gold uppercase">Private Dining & Events</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-burgundy">Make Your Celebration Special</h2>
+                <p class="text-slatebody text-sm">From corporate dinners to grand family functions, we host events with customized menus and dedicated staff.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="bg-white p-6 rounded-2xl text-center border border-stone-200 hover:border-gold transition-colors">
+                    <i class="fa-solid fa-cake-candles text-gold text-2xl mb-3"></i>
+                    <h4 class="font-serif text-sm font-bold text-charcoal">Birthday Parties</h4>
+                </div>
+                <div class="bg-white p-6 rounded-2xl text-center border border-stone-200 hover:border-gold transition-colors">
+                    <i class="fa-solid fa-people-group text-gold text-2xl mb-3"></i>
+                    <h4 class="font-serif text-sm font-bold text-charcoal">Family Functions</h4>
+                </div>
+                <div class="bg-white p-6 rounded-2xl text-center border border-stone-200 hover:border-gold transition-colors">
+                    <i class="fa-solid fa-briefcase text-gold text-2xl mb-3"></i>
+                    <h4 class="font-serif text-sm font-bold text-charcoal">Corporate Events</h4>
+                </div>
+                <div class="bg-white p-6 rounded-2xl text-center border border-stone-200 hover:border-gold transition-colors">
+                    <i class="fa-solid fa-champagne-glasses text-gold text-2xl mb-3"></i>
+                    <h4 class="font-serif text-sm font-bold text-charcoal">Anniversaries</h4>
+                </div>
+                <div class="bg-white p-6 rounded-2xl text-center border border-stone-200 hover:border-gold transition-colors">
+                    <i class="fa-solid fa-utensils text-gold text-2xl mb-3"></i>
+                    <h4 class="font-serif text-sm font-bold text-charcoal">Private Dining</h4>
+                </div>
+                <div class="bg-white p-6 rounded-2xl text-center border border-stone-200 hover:border-gold transition-colors">
+                    <i class="fa-solid fa-ring text-gold text-2xl mb-3"></i>
+                    <h4 class="font-serif text-sm font-bold text-charcoal">Wedding Events</h4>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="#contact" class="inline-block px-8 py-3.5 rounded-full bg-gold hover:bg-gold-dark text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md">
+                    Plan Your Event With Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurant Recognition / Awards Section -->
+    <section class="py-20 bg-white border-y border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                <span class="text-xs font-bold tracking-[0.25em] text-gold uppercase">Accolades</span>
+                <h2 class="font-serif text-3xl font-bold text-burgundy">Our Recognition</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-2xl bg-ivory text-center border border-stone-200 space-y-2">
+                    <div class="text-3xl">🏆</div>
+                    <h4 class="font-serif text-base font-bold text-burgundy">Best Indian Restaurant</h4>
+                    <p class="text-stone-500 text-xs">Culinary Excellence Guild 2024</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-ivory text-center border border-stone-200 space-y-2">
+                    <div class="text-3xl">⭐</div>
+                    <h4 class="font-serif text-base font-bold text-burgundy">Customer Choice Award</h4>
+                    <p class="text-stone-500 text-xs">Rated 4.9/5 Across 5,000+ Reviews</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-ivory text-center border border-stone-200 space-y-2">
+                    <div class="text-3xl">🏆</div>
+                    <h4 class="font-serif text-base font-bold text-burgundy">Excellence in Hospitality</h4>
+                    <p class="text-stone-500 text-xs">Gourmet Dining Forum</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-ivory text-center border border-stone-200 space-y-2">
+                    <div class="text-3xl">⭐</div>
+                    <h4 class="font-serif text-base font-bold text-burgundy">Best Biryani Experience</h4>
+                    <p class="text-stone-500 text-xs">Heritage Food Critics Award</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Contact Details -->
+                <div class="space-y-8">
+                    <div class="space-y-3">
+                        <span class="text-xs font-bold tracking-[0.25em] text-gold uppercase">Find Us Easily</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-burgundy">Visit Us</h2>
+                        <p class="text-slatebody text-sm">We are conveniently located in the culinary heart of the city.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-burgundy/10 text-burgundy flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-base font-bold text-charcoal">Restaurant Address</h4>
+                                <p class="text-slatebody text-sm">45 Royal Heritage Boulevard, Near City Center, MG Road, Belagavi, Karnataka 590001</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-burgundy/10 text-burgundy flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-base font-bold text-charcoal">Phone & Reservations</h4>
+                                <p class="text-slatebody text-sm">+91 98765 43210 / 0831 2456789</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-burgundy/10 text-burgundy flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-base font-bold text-charcoal">Opening Hours</h4>
+                                <p class="text-slatebody text-sm">Monday – Sunday: 11:30 AM – 11:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button onclick="simulateDirections()" class="px-7 py-3 rounded-full bg-burgundy hover:bg-burgundy-light text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md">
+                            <i class="fa-solid fa-diamond-turn-right mr-2"></i> Get Directions
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Map Placeholder / Styled Box -->
+                <div class="rounded-3xl overflow-hidden border border-stone-200 shadow-xl bg-ivory h-[400px] relative flex items-center justify-center">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-60" style="background-image: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=800&auto=format&fit=crop');"></div>
+                    <div class="relative z-10 bg-white/90 backdrop-blur-md p-6 rounded-2xl text-center max-w-xs border border-stone-200 shadow-lg space-y-3">
+                        <i class="fa-solid fa-map-pin text-burgundy text-3xl"></i>
+                        <h4 class="font-serif text-lg font-bold text-burgundy">KARTIK RESTAURANT</h4>
+                        <p class="text-xs text-stone-600">45 Royal Heritage Boulevard, MG Road</p>
+                        <a href="https://maps.google.com" target="_blank" class="inline-block text-xs font-bold text-gold hover:underline">View on Google Maps &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide-Out Cart Drawer -->
+    <div id="cartDrawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-6 bg-burgundy text-white flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-bag-shopping text-gold text-xl"></i>
+                <h3 class="font-serif text-lg font-bold">Your Food Order</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="text-white hover:text-gold text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div class="flex-1 overflow-y-auto p-6 space-y-4" id="cartItemsList">
+            <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Summary Footer -->
+        <div class="p-6 bg-ivory border-t border-stone-200 space-y-3">
+            <div class="flex justify-between text-sm text-stone-600">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">₹0</span>
+            </div>
+            <div class="flex justify-between text-sm text-stone-600">
+                <span>Taxes & GST (5%)</span>
+                <span id="cartTax">₹0</span>
+            </div>
+            <div class="flex justify-between font-serif text-lg font-bold text-burgundy pt-2 border-t border-stone-200">
+                <span>Total Amount</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button onclick="proceedToCheckout()" class="w-full py-3.5 rounded-full bg-burgundy hover:bg-burgundy-light text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md">
+                Proceed To Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- AI Voice Assistant Widget -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end space-y-2">
+        <!-- Floating Dialog Bubble -->
+        <div id="aiSpeechBubble" class="hidden glass-card p-4 rounded-2xl shadow-2xl max-w-xs border border-gold/40 text-charcoal space-y-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-burgundy">Kartik Buddy AI</span>
+                </div>
+                <button onclick="toggleAIBubble()" class="text-stone-400 hover:text-charcoal text-xs">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <p id="aiGreetingText" class="text-xs text-stone-700 font-medium">
+                “Hey buddy! 👋 Welcome to Kartik Restaurant. How can I help you today?”
+            </p>
+            
+            <!-- Quick Options -->
+            <div class="grid grid-cols-2 gap-2 pt-1 text-[11px]">
+                <button onclick="aiAction('menu')" class="p-2 bg-ivory hover:bg-stone-100 rounded-lg text-left font-semibold text-burgundy border border-stone-200">
+                    🍽️ View Menu
+                </button>
+                <button onclick="aiAction('book')" class="p-2 bg-ivory hover:bg-stone-100 rounded-lg text-left font-semibold text-burgundy border border-stone-200">
+                    🪑 Book Table
+                </button>
+                <button onclick="aiAction('order')" class="p-2 bg-ivory hover:bg-stone-100 rounded-lg text-left font-semibold text-burgundy border border-stone-200">
+                    🛵 Order Food
+                </button>
+                <button onclick="aiAction('location')" class="p-2 bg-ivory hover:bg-stone-100 rounded-lg text-left font-semibold text-burgundy border border-stone-200">
+                    📍 Find Location
+                </button>
+            </div>
+
+            <!-- Voice Control Button -->
+            <button onclick="speakAIGreeting()" class="w-full py-1.5 rounded-lg bg-gold/20 text-gold-dark text-[11px] font-bold flex items-center justify-center space-x-1.5 hover:bg-gold/30">
+                <i class="fa-solid fa-volume-high"></i>
+                <span>🔊 Tap to Hear Voice</span>
+            </button>
+        </div>
+
+        <!-- Floating Assistant Trigger Button -->
+        <button onclick="toggleAIBubble()" class="w-14 h-14 rounded-full bg-burgundy text-gold shadow-2xl flex items-center justify-center text-2xl border-2 border-gold hover:scale-110 transition-transform">
+            <i class="fa-solid fa-robot"></i>
+        </button>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-burgundy-dark text-white pt-16 pb-12 border-t border-gold/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-full bg-gold text-burgundy flex items-center justify-center font-serif text-lg font-bold">
+                            K
+                        </div>
+                        <span class="font-serif text-xl font-bold tracking-wider text-white">KARTIK</span>
+                    </div>
+                    <p class="text-stone-300 text-xs italic">“Where Flavour Meets Passion.”</p>
+                    <p class="text-stone-400 text-xs leading-relaxed">
+                        A premium Indian restaurant offering authentic Indian, Mughlai, Tandoori, and Chinese culinary specialties in an elegant atmosphere.
+                    </p>
+                </div>
+
+                <!-- Quick Navigation -->
+                <div class="space-y-4">
+                    <h4 class="font-serif text-sm font-bold text-gold uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2 text-xs text-stone-300">
+                        <li><a href="#home" class="hover:text-gold transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-gold transition-colors">About Us</a></li>
+                        <li><a href="#menu" class="hover:text-gold transition-colors">Digital Menu</a></li>
+                        <li><a href="#gallery" class="hover:text-gold transition-colors">Photo Gallery</a></li>
+                        <li><a href="#reservations" class="hover:text-gold transition-colors">Table Reservations</a></li>
+                        <li><a href="#contact" class="hover:text-gold transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Operating Hours & Contact -->
+                <div class="space-y-4">
+                    <h4 class="font-serif text-sm font-bold text-gold uppercase tracking-wider">Hours & Contact</h4>
+                    <p class="text-xs text-stone-300">Mon - Sun: 11:30 AM - 11:00 PM</p>
+                    <p class="text-xs text-stone-300">Address: 45 Royal Heritage Boulevard, MG Road, Belagavi</p>
+                    <p class="text-xs text-stone-300">Email: info@kartikrestaurant.com</p>
+                    <p class="text-xs text-stone-300">Phone: +91 98765 43210</p>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="space-y-4">
+                    <h4 class="font-serif text-sm font-bold text-gold uppercase tracking-wider">Newsletter</h4>
+                    <p class="text-xs text-stone-400">Subscribe for exclusive chef specials & weekend discounts.</p>
+                    <form onsubmit="handleSubscribe(event)" class="space-y-2">
+                        <input type="email" required placeholder="Your email address" class="w-full px-4 py-2.5 rounded-full bg-white/10 text-white placeholder-stone-400 text-xs border border-white/20 focus:outline-none focus:border-gold">
+                        <button type="submit" class="w-full py-2.5 rounded-full bg-gold hover:bg-gold-light text-burgundy font-bold text-xs uppercase tracking-wider transition-all">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Credits -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 space-y-4 sm:space-y-0">
+                <p>&copy; 2026 KARTIK RESTAURANT. All Rights Reserved.</p>
+                <div class="flex space-x-4 text-base">
+                    <a href="#" class="hover:text-gold transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-gold transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-gold transition-colors"><i class="fa-brands fa-google"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Logic Javascript -->
+    <script>
+        // -------------------------------------------------------------
+        // Data Structures & Menu Items
+        // -------------------------------------------------------------
+        const specialitiesData = [
+            { id: 1, name: "Butter Chicken Royal", cat: "indian", price: 380, desc: "Tender roasted chicken simmered in rich tomato gravy, cashew nut butter & fragrant fenugreek.", img: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=500&auto=format&fit=crop" },
+            { id: 2, name: "Paneer Tikka Angara", cat: "indian", price: 320, desc: "Cottage cheese marinated in yogurt & red chili spices, charred in clay oven.", img: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?q=80&w=500&auto=format&fit=crop" },
+            { id: 3, name: "Royal Chicken Biryani", cat: "mughlai", price: 420, desc: "Aromatic Basmati rice dum-cooked with spiced chicken, saffron & brown onions.", img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=500&auto=format&fit=crop" },
+            { id: 4, name: "Schezwan Hakka Noodles", cat: "chinese", price: 280, desc: "Wok-tossed noodles with crunchy vegetables and spicy Schezwan sauce.", img: "https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=500&auto=format&fit=crop" }
+        ];
+
+        const fullMenuItems = [
+            { id: 101, name: "Crispy Corn Pepper Salt", cat: "starters", price: 240, desc: "Crispy sweet corn tossed with bell peppers and black pepper." },
+            { id: 102, name: "Tandoori Chicken Full", cat: "tandoori", price: 480, desc: "Whole chicken marinated in spices and grilled in clay tandoor." },
+            { id: 103, name: "Dal Makhani Grand", cat: "main", price: 290, desc: "Black lentils slow-cooked overnight with cream and fresh butter." },
+            { id: 104, name: "Mutton Dum Biryani", cat: "biryani", price: 490, desc: "Long grain rice cooked with tender mutton chunks & aromatic herbs." },
+            { id: 105, name: "Veg Manchurian Dry", cat: "chinese", price: 260, desc: "Vegetable dumplings tossed in spicy ginger-garlic soy sauce." },
+            { id: 106, name: "Butter Garlic Naan", cat: "main", price: 70, desc: "Soft clay oven bread infused with minced garlic and butter." },
+            { id: 107, name: "Gulab Jamun with Rabri", cat: "desserts", price: 180, desc: "Warm golden dumplings served with rich saffron cardamom rabri." },
+            { id: 108, name: "Mango Lassi Royal", cat: "beverages", price: 140, desc: "Thick creamy yogurt drink flavored with Alphonsos and pistachios." }
+        ];
+
+        const galleryImages = [
+            "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=600&auto=format&fit=crop"
+        ];
+
+        let cart = [];
+        let currentSlide = 0;
+
+        // -------------------------------------------------------------
+        // Slider Initialization
+        // -------------------------------------------------------------
+        function setSlide(index) {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.slide-dot');
+            slides.forEach((s, i) => {
+                s.style.opacity = i === index ? '1' : '0';
+            });
+            dots.forEach((d, i) => {
+                d.className = i === index ? 'slide-dot w-3 h-3 rounded-full bg-burgundy transition-all' : 'slide-dot w-3 h-3 rounded-full bg-stone-300 transition-all';
+            });
+            currentSlide = index;
+        }
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % 3;
+            setSlide(currentSlide);
+        }, 5000);
+
+        // -------------------------------------------------------------
+        // Specialities Filtering
+        // -------------------------------------------------------------
+        function renderSpecialities(filter = 'all') {
+            const container = document.getElementById('specialitiesGrid');
+            container.innerHTML = '';
+
+            const filtered = filter === 'all' ? specialitiesData : specialitiesData.filter(item => item.cat === filter);
+
+            filtered.forEach(item => {
+                container.innerHTML += `
+                    <div class="bg-ivory rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-burgundy shadow-sm">
+                                    ₹${item.price}
+                                </span>
+                            </div>
+                            <div class="p-5 space-y-2">
+                                <h4 class="font-serif text-lg font-bold text-charcoal">${item.name}</h4>
+                                <p class="text-slatebody text-xs leading-relaxed">${item.desc}</p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <button onclick="addToCart('${item.name}', ${item.price})" class="w-full py-2.5 rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-white font-bold text-xs uppercase tracking-wider transition-all">
+                                + Add To Order
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filterSpeciality(category) {
+            renderSpecialities(category);
+        }
+
+        // -------------------------------------------------------------
+        // Digital Menu Rendering
+        // -------------------------------------------------------------
+        const menuCategoriesList = [
+            { id: 'all', label: 'All Items' },
+            { id: 'starters', label: 'Starters' },
+            { id: 'main', label: 'Main Course' },
+            { id: 'biryani', label: 'Biryani' },
+            { id: 'tandoori', label: 'Tandoori' },
+            { id: 'chinese', label: 'Chinese' },
+            { id: 'desserts', label: 'Desserts' },
+            { id: 'beverages', label: 'Beverages' }
+        ];
+
+        function renderMenuCategories() {
+            const container = document.getElementById('menuCategories');
+            container.innerHTML = '';
+            menuCategoriesList.forEach((c, i) => {
+                const activeClass = i === 0 ? 'bg-burgundy text-white' : 'bg-white text-charcoal hover:bg-stone-100';
+                container.innerHTML += `
+                    <button onclick="filterMenuCategory('${c.id}', this)" class="menu-cat-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider shrink-0 border border-stone-200 transition-all ${activeClass}">
+                        ${c.label}
+                    </button>
+                `;
+            });
+        }
+
+        function renderMenuItems(items) {
+            const container = document.getElementById('menuItemsContainer');
+            container.innerHTML = '';
+            items.forEach(item => {
+                container.innerHTML += `
+                    <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm flex items-center justify-between hover:border-gold transition-all">
+                        <div class="space-y-1 pr-4">
+                            <h4 class="font-serif text-base font-bold text-charcoal">${item.name}</h4>
+                            <p class="text-stone-500 text-xs">${item.desc}</p>
+                            <span class="inline-block font-bold text-burgundy text-sm pt-1">₹${item.price}</span>
+                        </div>
+                        <button onclick="addToCart('${item.name}', ${item.price})" class="px-4 py-2 rounded-full bg-ivory border border-burgundy text-burgundy hover:bg-burgundy hover:text-white text-xs font-bold shrink-0 transition-all">
+                            + Add
+                        </button>
+                    </div>
+                `;
+            });
+        }
+
+        function filterMenuCategory(catId, btn) {
+            document.querySelectorAll('.menu-cat-btn').forEach(b => {
+                b.className = 'menu-cat-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider shrink-0 border border-stone-200 transition-all bg-white text-charcoal hover:bg-stone-100';
+            });
+            btn.className = 'menu-cat-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider shrink-0 border border-stone-200 transition-all bg-burgundy text-white';
+
+            if (catId === 'all') {
+                renderMenuItems(fullMenuItems);
+            } else {
+                const filtered = fullMenuItems.filter(i => i.cat === catId);
+                renderMenuItems(filtered);
+            }
+        }
+
+        function searchMenu() {
+            const query = document.getElementById('menuSearchInput').value.toLowerCase();
+            const filtered = fullMenuItems.filter(i => i.name.toLowerCase().includes(query) || i.desc.toLowerCase().includes(query));
+            renderMenuItems(filtered);
+        }
+
+        // -------------------------------------------------------------
+        // Gallery Lightbox Logic
+        // -------------------------------------------------------------
+        function renderGallery() {
+            const container = document.getElementById('galleryContainer');
+            container.innerHTML = '';
+            galleryImages.forEach(img => {
+                container.innerHTML += `
+                    <div onclick="openLightbox('${img}')" class="h-48 sm:h-64 rounded-2xl overflow-hidden cursor-pointer border border-stone-200 shadow-sm hover:opacity-90 transition-all">
+                        <img src="${img}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                `;
+            });
+        }
+
+        function openLightbox(url) {
+            document.getElementById('lightboxImage').src = url;
+            document.getElementById('lightboxModal').classList.remove('hidden');
+            document.getElementById('lightboxModal').classList.add('flex');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.add('hidden');
+            document.getElementById('lightboxModal').classList.remove('flex');
+        }
+
+        // -------------------------------------------------------------
+        // Interactive Cart & Checkout
+        // -------------------------------------------------------------
+        function addToCart(name, price) {
+            const existing = cart.find(i => i.name === name);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+            toggleCartDrawer(true);
+        }
+
+        function addSignatureToCart() {
+            addToCart('The Royal Kartik Biryani', 480);
+        }
+
+        function updateCartUI() {
+            const count = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartBadgeCount').innerText = count;
+            document.getElementById('cartBadgeCountMobile').innerText = count;
+
+            const list = document.getElementById('cartItemsList');
+            list.innerHTML = '';
+
+            let subtotal = 0;
+            if (cart.length === 0) {
+                list.innerHTML = '<p class="text-center text-stone-400 text-xs py-8">Your food order is currently empty.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.qty;
+                    subtotal += itemTotal;
+                    list.innerHTML += `
+                        <div class="flex items-center justify-between border-b border-stone-100 pb-3">
+                            <div>
+                                <h5 class="text-xs font-bold text-charcoal">${item.name}</h5>
+                                <span class="text-[11px] text-stone-500">₹${item.price} each</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded bg-stone-100 text-charcoal text-xs font-bold">-</button>
+                                <span class="text-xs font-bold">${item.qty}</span>
+                                <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded bg-stone-100 text-charcoal text-xs font-bold">+</button>
+                                <span class="text-xs font-bold text-burgundy ml-2">₹${itemTotal}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            const tax = Math.round(subtotal * 0.05);
+            const total = subtotal + tax;
+
+            document.getElementById('cartSubtotal').innerText = `₹${subtotal}`;
+            document.getElementById('cartTax').innerText = `₹${tax}`;
+            document.getElementById('cartTotal').innerText = `₹${total}`;
+        }
+
+        function changeQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCartDrawer(open) {
+            const drawer = document.getElementById('cartDrawer');
+            if (open === true) {
+                drawer.classList.remove('translate-x-full');
+            } else if (open === false) {
+                drawer.classList.add('translate-x-full');
+            } else {
+                drawer.classList.toggle('translate-x-full');
+            }
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty! Add items from menu first.');
+                return;
+            }
+            alert('Thank you for ordering with Kartik Restaurant! Your culinary order has been received and sent to the kitchen.');
+            cart = [];
+            updateCartUI();
+            toggleCartDrawer(false);
+        }
+
+        // -------------------------------------------------------------
+        // Booking & Events Modals
+        // -------------------------------------------------------------
+        function handleReservationSubmit(e) {
+            e.preventDefault();
+            document.getElementById('bookingModal').classList.remove('hidden');
+            document.getElementById('bookingModal').classList.add('flex');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+            document.getElementById('bookingModal').classList.remove('flex');
+            document.getElementById('reservationForm').reset();
+        }
+
+        function handleSubscribe(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to Kartik Restaurant newsletters!');
+            e.target.reset();
+        }
+
+        function simulateDirections() {
+            alert('Opening Directions to KARTIK RESTAURANT (45 Royal Heritage Boulevard, MG Road, Belagavi)...');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+
+        // -------------------------------------------------------------
+        // AI Voice Assistant ("Kartik Buddy")
+        // -------------------------------------------------------------
+        function toggleAIBubble() {
+            document.getElementById('aiSpeechBubble').classList.toggle('hidden');
+        }
+
+        function speakAIGreeting() {
+            if ('speechSynthesis' in window) {
+                const msg = new SpeechSynthesisUtterance("Hey buddy! Welcome to Kartik Restaurant. How can I help you today?");
+                msg.rate = 1.0;
+                msg.pitch = 1.0;
+                window.speechSynthesis.speak(msg);
+            } else {
+                alert("Hey buddy! 👋 Welcome to Kartik Restaurant.");
+            }
+        }
+
+        function aiAction(type) {
+            toggleAIBubble();
+            if (type === 'menu') {
+                window.location.href = '#menu';
+            } else if (type === 'book') {
+                window.location.href = '#reservations';
+            } else if (type === 'order') {
+                toggleCartDrawer(true);
+            } else if (type === 'location') {
+                window.location.href = '#contact';
+            }
+        }
+
+        // -------------------------------------------------------------
+        // Initializer On Load
+        // -------------------------------------------------------------
+        window.onload = function() {
+            renderSpecialities('all');
+            renderMenuCategories();
+            renderMenuItems(fullMenuItems);
+            renderGallery();
+            updateCartUI();
+        };
+    </script>
+</body>
+</html>

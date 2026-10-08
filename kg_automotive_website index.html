@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KG Automotive | Drive a Brighter Tomorrow</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0A0A0B',
+                        charcoal: '#121316',
+                        titanium: '#1C1D22',
+                        champagne: {
+                            DEFAULT: '#D4AF37',
+                            light: '#E5C158',
+                            dark: '#A68323',
+                            glass: 'rgba(212, 175, 55, 0.15)'
+                        },
+                        silver: '#E2E8F0'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom Customizer & Glow Effects */
+        .glass-panel {
+            background: rgba(18, 19, 22, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-panel-gold {
+            background: rgba(212, 175, 55, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFF1C5 0%, #D4AF37 50%, #9A7B20 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gold-gradient {
+            background: linear-gradient(135deg, #E5C158 0%, #D4AF37 50%, #A68323 100%);
+        }
+        .gold-border-glow:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+            border-color: rgba(212, 175, 55, 0.6);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A2B30;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+        /* Hide scrollbar for clean carousels */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-gray-200 font-sans selection:bg-champagne selection:text-black overflow-x-hidden">
+
+    <!-- GLASS NAVIGATION BAR -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 px-6 lg:px-16 flex items-center justify-between">
+        <!-- Brand Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 border border-champagne/40 rounded-full flex items-center justify-center transition-all duration-500 group-hover:border-champagne group-hover:shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+                <span class="font-serif text-xl font-bold tracking-widest text-gold-gradient">KG</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="font-serif tracking-[0.3em] text-lg font-semibold text-white group-hover:text-champagne transition-colors">AUTOMOTIVE</span>
+                <span class="text-[9px] tracking-[0.25em] text-gray-400 font-light uppercase">Luxuria & Virtus</span>
+            </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-8 text-xs font-medium uppercase tracking-[0.2em] text-gray-300">
+            <a href="#models" class="hover:text-champagne transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-champagne hover:after:w-full after:transition-all">Models</a>
+            <a href="#apex" class="hover:text-champagne transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-champagne hover:after:w-full after:transition-all">KG Apex</a>
+            <a href="#bespoke" class="hover:text-champagne transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-champagne hover:after:w-full after:transition-all">Bespoke</a>
+            <a href="#technology" class="hover:text-champagne transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-champagne hover:after:w-full after:transition-all">Technology</a>
+            <a href="#experience" class="hover:text-champagne transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-champagne hover:after:w-full after:transition-all">Experience</a>
+            <a href="#story" class="hover:text-champagne transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-champagne hover:after:w-full after:transition-all">About KG</a>
+        </nav>
+
+        <!-- Right Action Buttons -->
+        <div class="hidden lg:flex items-center space-x-6">
+            <a href="#bespoke" class="text-xs uppercase tracking-[0.2em] px-5 py-2.5 border border-champagne/40 rounded-full text-champagne hover:bg-champagne hover:text-black transition-all duration-300 font-medium">Configure</a>
+            <a href="#enquire" class="text-xs uppercase tracking-[0.2em] px-5 py-2.5 bg-gold-gradient text-black font-semibold rounded-full hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300">Enquire</a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-toggle" class="lg:hidden text-white hover:text-champagne focus:outline-none p-2">
+            <i class="fa-solid fa-bars-staggered text-2xl"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 bg-obsidian/98 backdrop-blur-2xl z-40 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-500">
+        <button id="menu-close" class="absolute top-8 right-8 text-gray-400 hover:text-white text-3xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="flex flex-col items-center space-y-6 text-center">
+            <span class="font-serif text-3xl tracking-[0.3em] text-gold-gradient mb-4">KG AUTOMOTIVE</span>
+            <a href="#models" class="mobile-nav-link text-lg uppercase tracking-[0.25em] text-gray-300 hover:text-champagne">Models</a>
+            <a href="#apex" class="mobile-nav-link text-lg uppercase tracking-[0.25em] text-gray-300 hover:text-champagne">KG Apex</a>
+            <a href="#bespoke" class="mobile-nav-link text-lg uppercase tracking-[0.25em] text-gray-300 hover:text-champagne">Bespoke Configurator</a>
+            <a href="#technology" class="mobile-nav-link text-lg uppercase tracking-[0.25em] text-gray-300 hover:text-champagne">Technology</a>
+            <a href="#experience" class="mobile-nav-link text-lg uppercase tracking-[0.25em] text-gray-300 hover:text-champagne">Experience</a>
+            <a href="#story" class="mobile-nav-link text-lg uppercase tracking-[0.25em] text-gray-300 hover:text-champagne">About KG</a>
+            <div class="pt-6 flex flex-col space-y-4 w-64">
+                <a href="#bespoke" class="mobile-nav-link text-center text-xs uppercase tracking-[0.2em] py-3 border border-champagne rounded-full text-champagne">Configure</a>
+                <a href="#enquire" class="mobile-nav-link text-center text-xs uppercase tracking-[0.2em] py-3 bg-gold-gradient text-black font-semibold rounded-full">Enquire Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-obsidian">
+        <!-- Sunset Automotive Background -->
+        <div class="absolute inset-0 z-0">
+            <img src="kg.png" alt="KG Apex Futuristic Luxury Sedan at Sunset" class="w-full h-full object-cover object-center scale-105 transition-transform duration-10000 ease-out" id="hero-bg-img" onerror="this.src='https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=2000&auto=format&fit=crop'">
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-black/60"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-obsidian/80 via-transparent to-obsidian/80"></div>
+        </div>
+
+        <!-- Hero Content Overlay -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center flex flex-col items-center pt-24">
+            <span class="inline-block text-xs uppercase tracking-[0.4em] text-champagne mb-4 font-semibold px-4 py-1.5 rounded-full border border-champagne/30 bg-black/40 backdrop-blur-md animate-pulse">
+                Flagship Vehicle
+            </span>
+            <h1 class="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tight text-white mb-6 uppercase">
+                KG <span class="text-gold-gradient italic font-normal">APEX</span>
+            </h1>
+            <p class="font-serif italic text-xl md:text-2xl text-gray-300 max-w-2xl mb-10 tracking-wide">
+                "Where performance becomes art."
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto">
+                <a href="#story" class="w-full sm:w-auto text-xs uppercase tracking-[0.25em] px-8 py-4 bg-gold-gradient text-black font-bold rounded-full hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all duration-300 text-center">
+                    Discover KG Apex
+                </a>
+                <a href="#bespoke" class="w-full sm:w-auto text-xs uppercase tracking-[0.25em] px-8 py-4 border border-white/30 hover:border-champagne backdrop-blur-sm text-white hover:text-champagne rounded-full transition-all duration-300 text-center">
+                    Configure Yours
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#story" class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center group">
+            <span class="text-[10px] uppercase tracking-[0.3em] text-gray-400 mb-2 group-hover:text-champagne transition-colors">Explore</span>
+            <div class="w-6 h-10 border border-white/20 rounded-full flex justify-center p-1 group-hover:border-champagne transition-colors">
+                <div class="w-1 h-2 bg-champagne rounded-full animate-bounce"></div>
+            </div>
+        </a>
+    </section>
+
+    <!-- EDITORIAL STORY SECTION -->
+    <section id="story" class="py-28 px-6 lg:px-16 bg-obsidian relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-6 space-y-8">
+                    <span class="text-xs uppercase tracking-[0.3em] text-champagne font-semibold">Crafted Beyond Expectation</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-white leading-tight">
+                        A symphony of silicon, steel, and <span class="italic text-gold-gradient">uncompromising soul.</span>
+                    </h2>
+                    <blockquote class="border-l-2 border-champagne pl-6 py-2 text-xl font-serif italic text-gray-300">
+                        "Every KG Apex is created with obsessive attention to detail, advanced technology and a relentless pursuit of excellence."
+                    </blockquote>
+                    <p class="text-gray-400 leading-relaxed font-light text-sm md:text-base">
+                        Born from a vision to redefine ultra-luxury mobility, the KG Apex stands at the intersection of haute couture craftsmanship and modern electric performance. Designed in our European studio and meticulously hand-finished by master artisans, every curve serves a dual purpose: aerodynamic perfection and timeless aesthetic grandeur.
+                    </p>
+                    <div class="pt-4 flex items-center gap-8">
+                        <div>
+                            <p class="text-3xl font-serif text-white font-light">100%</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">Custom Built</p>
+                        </div>
+                        <div class="h-10 w-[1px] bg-white/10"></div>
+                        <div>
+                            <p class="text-3xl font-serif text-white font-light">220+</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">Hours of Hand Craft</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Collage -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative z-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                        <img src="kg.png" alt="KG Apex Profile Artistry" class="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop'">
+                    </div>
+                    <div class="absolute -bottom-8 -left-8 w-2/3 rounded-xl overflow-hidden border border-champagne/30 shadow-2xl z-20 hidden sm:block">
+                        <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?q=80&w=800&auto=format&fit=crop" alt="Crafting Detail" class="w-full h-48 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGN GALLERY SECTION -->
+    <section class="py-28 px-6 lg:px-16 bg-charcoal relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-champagne font-semibold">Sculpted For Presence</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-light text-white mt-3">An Exterior Born of Motion</h2>
+                <p class="text-gray-400 mt-4 text-sm font-light">Select details below to explore the distinct architectural design language of the KG Apex.</p>
+            </div>
+
+            <!-- Gallery Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button onclick="switchDesignTab('grille')" id="tab-grille" class="design-tab-btn active text-xs uppercase tracking-[0.2em] px-6 py-3 rounded-full border border-champagne bg-champagne text-black font-semibold transition-all">Front Grille</button>
+                <button onclick="switchDesignTab('headlights')" id="tab-headlights" class="design-tab-btn text-xs uppercase tracking-[0.2em] px-6 py-3 rounded-full border border-white/20 text-gray-300 hover:border-champagne transition-all">Matrix LED</button>
+                <button onclick="switchDesignTab('wheels')" id="tab-wheels" class="design-tab-btn text-xs uppercase tracking-[0.2em] px-6 py-3 rounded-full border border-white/20 text-gray-300 hover:border-champagne transition-all">Forged Alloys</button>
+                <button onclick="switchDesignTab('rear')" id="tab-rear" class="design-tab-btn text-xs uppercase tracking-[0.2em] px-6 py-3 rounded-full border border-white/20 text-gray-300 hover:border-champagne transition-all">Rear OLED Lightbar</button>
+            </div>
+
+            <!-- Tab Content Container -->
+            <div id="design-display" class="glass-panel rounded-3xl p-6 lg:p-12 border border-white/10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center transition-all duration-500">
+                <div class="lg:col-span-7 rounded-2xl overflow-hidden h-[380px] lg:h-[450px]">
+                    <img id="design-img" src="kg.png" alt="Front Grille Detail" class="w-full h-full object-cover transition-all duration-700 hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1200&auto=format&fit=crop'">
+                </div>
+                <div class="lg:col-span-5 space-y-6">
+                    <span id="design-tag" class="text-xs uppercase tracking-[0.25em] text-champagne font-medium">Signature Motif</span>
+                    <h3 id="design-title" class="font-serif text-3xl font-light text-white">Illuminated Obsidian Grille</h3>
+                    <p id="design-desc" class="text-gray-400 font-light text-sm leading-relaxed">
+                        Features micro-laser etched geometric patterns integrated into an active shutter system that adjusts continuously for maximum aerodynamic cooling and striking illuminated road presence.
+                    </p>
+                    <ul class="space-y-3 text-xs text-gray-300 pt-2">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-champagne"></i> <span id="design-feat-1">Active aerodynamic air shutters</span></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-champagne"></i> <span id="design-feat-2">Signature backlit KG emblem</span></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-champagne"></i> <span id="design-feat-3">High-gloss obsidian dark titanium trim</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERFORMANCE SECTION -->
+    <section id="apex" class="py-28 px-6 lg:px-16 bg-obsidian relative overflow-hidden">
+        <!-- Subtle Glow Orbs -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-champagne/5 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.3em] text-champagne font-semibold">Power, Refined</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-light text-white mt-2">Unrivaled Dynamics</h2>
+                </div>
+                <p class="text-gray-400 max-w-md mt-4 lg:mt-0 font-light text-sm">
+                    Dual permanent-magnet motors deliver instantaneous torque with whisper-quiet, frictionless acceleration.
+                </p>
+            </div>
+
+            <!-- Specification Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-champagne/50 transition-all duration-300 group">
+                    <span class="text-xs uppercase tracking-[0.2em] text-gray-400 group-hover:text-champagne transition-colors">Acceleration</span>
+                    <div class="my-4 flex items-baseline">
+                        <span class="font-serif text-5xl lg:text-6xl text-white font-light counter-val" data-target="3.8">0</span>
+                        <span class="text-2xl text-champagne font-serif ml-2">sec</span>
+                    </div>
+                    <p class="text-xs text-gray-400 font-light">0–100 km/h sprint speed with launch control enabled.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-champagne/50 transition-all duration-300 group">
+                    <span class="text-xs uppercase tracking-[0.2em] text-gray-400 group-hover:text-champagne transition-colors">Peak Output</span>
+                    <div class="my-4 flex items-baseline">
+                        <span class="font-serif text-5xl lg:text-6xl text-white font-light counter-val" data-target="520">0</span>
+                        <span class="text-2xl text-champagne font-serif ml-2">HP</span>
+                    </div>
+                    <p class="text-xs text-gray-400 font-light">Dual electric powertrain output with vector torque control.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-champagne/50 transition-all duration-300 group">
+                    <span class="text-xs uppercase tracking-[0.2em] text-gray-400 group-hover:text-champagne transition-colors">Electric Range</span>
+                    <div class="my-4 flex items-baseline">
+                        <span class="font-serif text-5xl lg:text-6xl text-white font-light counter-val" data-target="650">0</span>
+                        <span class="text-2xl text-champagne font-serif ml-2">km</span>
+                    </div>
+                    <p class="text-xs text-gray-400 font-light">WLTP estimated range on a single full charge.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-champagne/50 transition-all duration-300 group">
+                    <span class="text-xs uppercase tracking-[0.2em] text-gray-400 group-hover:text-champagne transition-colors">Drivetrain</span>
+                    <div class="my-4 flex items-baseline">
+                        <span class="font-serif text-5xl lg:text-6xl text-white font-light">AWD</span>
+                    </div>
+                    <p class="text-xs text-gray-400 font-light">Intelligent torque vectoring all-wheel drive architecture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERIOR SECTION -->
+    <section class="py-28 px-6 lg:px-16 bg-charcoal relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-champagne font-semibold">Your Private Space</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-light text-white mt-3">An Oasis of Tranquility</h2>
+                <p class="text-gray-400 mt-4 text-sm font-light">Crafted for executive comfort with acoustic glass insulation and hand-stitched nappa leather.</p>
+            </div>
+
+            <!-- Full Width Interactive Interior Image -->
+            <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl group">
+                <img src="kg.png" alt="KG Apex Luxurious Interior Dashboard" class="w-full h-[500px] lg:h-[650px] object-cover" onerror="this.src='https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1600&auto=format&fit=crop'">
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+
+                <!-- Interactive Hotspots -->
+                <div class="absolute top-1/3 left-1/4 group/hotspot">
+                    <button class="w-8 h-8 rounded-full bg-champagne/80 text-black flex items-center justify-center animate-ping absolute inset-0"></button>
+                    <button class="w-8 h-8 rounded-full bg-champagne text-black flex items-center justify-center relative font-bold text-xs shadow-lg"><i class="fa-solid fa-plus"></i></button>
+                    <div class="absolute bottom-10 left-0 w-64 glass-panel p-4 rounded-xl border border-champagne/40 opacity-0 group-hover/hotspot:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <p class="text-xs uppercase text-champagne font-semibold tracking-wider">AI Digital Cockpit</p>
+                        <p class="text-[11px] text-gray-300 mt-1">Curved 32-inch OLED display with holographic HUD driver interface.</p>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-1/3 right-1/3 group/hotspot">
+                    <button class="w-8 h-8 rounded-full bg-champagne/80 text-black flex items-center justify-center animate-ping absolute inset-0"></button>
+                    <button class="w-8 h-8 rounded-full bg-champagne text-black flex items-center justify-center relative font-bold text-xs shadow-lg"><i class="fa-solid fa-plus"></i></button>
+                    <div class="absolute bottom-10 left-0 w-64 glass-panel p-4 rounded-xl border border-champagne/40 opacity-0 group-hover/hotspot:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <p class="text-xs uppercase text-champagne font-semibold tracking-wider">Executive Lounge Seating</p>
+                        <p class="text-[11px] text-gray-300 mt-1">First-class recliners with integrated shiatsu massage and climate control.</p>
+                    </div>
+                </div>
+
+                <div class="absolute top-1/4 right-1/4 group/hotspot">
+                    <button class="w-8 h-8 rounded-full bg-champagne/80 text-black flex items-center justify-center animate-ping absolute inset-0"></button>
+                    <button class="w-8 h-8 rounded-full bg-champagne text-black flex items-center justify-center relative font-bold text-xs shadow-lg"><i class="fa-solid fa-plus"></i></button>
+                    <div class="absolute bottom-10 left-0 w-64 glass-panel p-4 rounded-xl border border-champagne/40 opacity-0 group-hover/hotspot:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <p class="text-xs uppercase text-champagne font-semibold tracking-wider">Panoramic Glass Sky Roof</p>
+                        <p class="text-[11px] text-gray-300 mt-1">Electrochromic dimmable roof with star-constellation LED integration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Grid below -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="flex items-start gap-4">
+                    <div class="p-3 glass-panel rounded-xl text-champagne text-xl"><i class="fa-solid fa-music"></i></div>
+                    <div>
+                        <h4 class="font-serif text-lg text-white">28-Speaker Bespoke Sound</h4>
+                        <p class="text-xs text-gray-400 mt-1 font-light">Engineered for studio-grade acoustic spatial immersion.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="p-3 glass-panel rounded-xl text-champagne text-xl"><i class="fa-solid fa-wind"></i></div>
+                    <div>
+                        <h4 class="font-serif text-lg text-white">Active Air Purification</h4>
+                        <p class="text-xs text-gray-400 mt-1 font-light">HEPA filter system with subtle custom fragrance diffusion.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="p-3 glass-panel rounded-xl text-champagne text-xl"><i class="fa-solid fa-lightbulb"></i></div>
+                    <div>
+                        <h4 class="font-serif text-lg text-white">64-Color Ambient Lights</h4>
+                        <p class="text-xs text-gray-400 mt-1 font-light">Customizable multi-zone ambient lighting tailored to your mood.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BESPOKE CONFIGURATOR SECTION -->
+    <section id="bespoke" class="py-28 px-6 lg:px-16 bg-obsidian relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs uppercase tracking-[0.3em] text-champagne font-semibold">Make It Yours</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-light text-white mt-2">The Bespoke Studio</h2>
+                <p class="text-gray-400 mt-3 text-sm font-light">Tailor the KG Apex to your exact personal aesthetic specifications.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <!-- Vehicle Preview Area -->
+                <div class="lg:col-span-8 glass-panel rounded-3xl p-6 relative flex flex-col items-center justify-center min-h-[420px] lg:min-h-[520px] border border-white/10">
+                    <!-- SVG Interactive Car Graphic with Dynamic Colors -->
+                    <div class="relative w-full max-w-2xl h-64 sm:h-80 flex items-center justify-center">
+                        <!-- Dynamic Glow Effect under vehicle -->
+                        <div id="car-glow" class="absolute bottom-6 w-3/4 h-12 rounded-full blur-2xl transition-all duration-700 bg-champagne/20"></div>
+
+                        <!-- Vector Stylized Sedan Illustration -->
+                        <svg class="w-full h-full relative z-10 filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]" viewBox="0 0 800 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Shadow -->
+                            <ellipse cx="400" cy="290" rx="360" ry="25" fill="#000000" fill-opacity="0.7" />
+                            
+                            <!-- Main Body Shape -->
+                            <path id="car-body" d="M 120 230 C 140 180, 240 140, 360 120 C 480 100, 600 130, 680 180 C 720 200, 750 230, 740 250 C 730 260, 660 265, 590 265 C 540 265, 480 265, 400 265 C 320 265, 260 265, 200 265 C 150 265, 110 250, 120 230 Z" fill="#1C1D22" stroke="#4A4C54" stroke-width="3" class="transition-all duration-500"/>
+                            
+                            <!-- Glass Roof & Windows -->
+                            <path d="M 260 155 C 310 130, 420 115, 520 135 C 570 145, 620 170, 630 185 L 230 185 Z" fill="#0A0A0B" fill-opacity="0.85" stroke="#666" stroke-width="1.5"/>
+                            
+                            <!-- Headlights & Taillights -->
+                            <path d="M 120 230 L 150 235 L 140 245 Z" fill="#38BDF8" class="animate-pulse"/>
+                            <path d="M 730 230 L 740 245 L 720 245 Z" fill="#EF4444"/>
+                            
+                            <!-- Accent Trim -->
+                            <path id="car-trim" d="M 160 245 C 300 250, 500 250, 700 245" stroke="#D4AF37" stroke-width="3" stroke-linecap="round" class="transition-all duration-500"/>
+
+                            <!-- Front Wheel -->
+                            <g transform="translate(230, 265)">
+                                <circle cx="0" cy="0" r="42" fill="#111" stroke="#333" stroke-width="4"/>
+                                <circle id="wheel-rim-1" cx="0" cy="0" r="30" fill="none" stroke="#E2E8F0" stroke-width="6" stroke-dasharray="8 6" class="transition-all duration-500"/>
+                                <circle cx="0" cy="0" r="10" fill="#D4AF37"/>
+                            </g>
+
+                            <!-- Rear Wheel -->
+                            <g transform="translate(580, 265)">
+                                <circle cx="0" cy="0" r="42" fill="#111" stroke="#333" stroke-width="4"/>
+                                <circle id="wheel-rim-2" cx="0" cy="0" r="30" fill="none" stroke="#E2E8F0" stroke-width="6" stroke-dasharray="8 6" class="transition-all duration-500"/>
+                                <circle cx="0" cy="0" r="10" fill="#D4AF37"/>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- Selected Spec Summary Banner -->
+                    <div class="mt-6 flex flex-wrap items-center justify-between w-full pt-4 border-t border-white/10 text-xs text-gray-300">
+                        <div>Paint: <span id="summary-paint" class="text-white font-semibold">Obsidian Black</span></div>
+                        <div>Interior: <span id="summary-interior" class="text-white font-semibold">Deep Ebony</span></div>
+                        <div>Wheels: <span id="summary-wheels" class="text-white font-semibold">22" Forged Multi-Spoke</span></div>
+                    </div>
+                </div>
+
+                <!-- Customizer Control Controls -->
+                <div class="lg:col-span-4 space-y-6 glass-panel p-6 lg:p-8 rounded-3xl border border-white/10">
+                    <h3 class="font-serif text-2xl text-white font-light">Customization Options</h3>
+
+                    <!-- 1. Exterior Color -->
+                    <div>
+                        <label class="text-xs uppercase tracking-wider text-gray-400 block mb-3">Exterior Finish</label>
+                        <div class="flex gap-3">
+                            <button onclick="setPaint('#111318', 'Obsidian Black')" class="w-9 h-9 rounded-full bg-[#111318] border-2 border-champagne ring-2 ring-champagne/20 transition-transform hover:scale-110" title="Obsidian Black"></button>
+                            <button onclick="setPaint('#94A3B8', 'Metallic Silver')" class="w-9 h-9 rounded-full bg-[#94A3B8] border-2 border-transparent hover:border-white transition-transform hover:scale-110" title="Metallic Silver"></button>
+                            <button onclick="setPaint('#78350F', 'Sunset Bronze')" class="w-9 h-9 rounded-full bg-[#78350F] border-2 border-transparent hover:border-white transition-transform hover:scale-110" title="Sunset Bronze"></button>
+                            <button onclick="setPaint('#F8FAFC', 'Arctic Pearl')" class="w-9 h-9 rounded-full bg-[#F8FAFC] border-2 border-transparent hover:border-white transition-transform hover:scale-110" title="Arctic Pearl"></button>
+                            <button onclick="setPaint('#1E3A8A', 'Midnight Sapphire')" class="w-9 h-9 rounded-full bg-[#1E3A8A] border-2 border-transparent hover:border-white transition-transform hover:scale-110" title="Midnight Sapphire"></button>
+                        </div>
+                    </div>
+
+                    <!-- 2. Interior Leather -->
+                    <div>
+                        <label class="text-xs uppercase tracking-wider text-gray-400 block mb-3">Interior Leather</label>
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <button onclick="setInterior('Deep Ebony')" class="px-3 py-2 rounded-lg border border-champagne bg-champagne/10 text-white font-medium text-left">Deep Ebony</button>
+                            <button onclick="setInterior('Cream Ivory')" class="px-3 py-2 rounded-lg border border-white/10 hover:border-white text-gray-300 text-left">Cream Ivory</button>
+                            <button onclick="setInterior('Saddle Chestnut')" class="px-3 py-2 rounded-lg border border-white/10 hover:border-white text-gray-300 text-left">Saddle Chestnut</button>
+                            <button onclick="setInterior('Warm Champagne')" class="px-3 py-2 rounded-lg border border-white/10 hover:border-white text-gray-300 text-left">Warm Champagne</button>
+                        </div>
+                    </div>
+
+                    <!-- 3. Wheel Design -->
+                    <div>
+                        <label class="text-xs uppercase tracking-wider text-gray-400 block mb-3">Wheel Selection</label>
+                        <select onchange="setWheels(this.value)" class="w-full bg-obsidian border border-white/20 rounded-xl px-4 py-2.5 text-xs text-white focus:border-champagne outline-none">
+                            <option value="22&quot; Forged Multi-Spoke">22" Forged Multi-Spoke Silver</option>
+                            <option value="21&quot; Aero Blade Titanium">21" Aero Blade Titanium</option>
+                            <option value="22&quot; Matte Obsidian Sport">22" Matte Obsidian Sport</option>
+                        </select>
+                    </div>
+
+                    <!-- 4. Ambient Glow Accent -->
+                    <div>
+                        <label class="text-xs uppercase tracking-wider text-gray-400 block mb-3">Ambient Lighting Accent</label>
+                        <div class="flex gap-3">
+                            <button onclick="setGlow('rgba(212, 175, 55, 0.4)', '#D4AF37')" class="w-7 h-7 rounded-full bg-champagne border border-white/40"></button>
+                            <button onclick="setGlow('rgba(56, 189, 248, 0.4)', '#38BDF8')" class="w-7 h-7 rounded-full bg-sky-400 border border-white/40"></button>
+                            <button onclick="setGlow('rgba(236, 72, 153, 0.4)', '#EC4899')" class="w-7 h-7 rounded-full bg-pink-500 border border-white/40"></button>
+                            <button onclick="setGlow('rgba(34, 197, 94, 0.4)', '#22C55E')" class="w-7 h-7 rounded-full bg-emerald-500 border border-white/40"></button>
+                        </div>
+                    </div>
+
+                    <!-- Build CTA -->
+                    <button onclick="openConfigModal()" class="w-full text-xs uppercase tracking-[0.25em] py-4 bg-gold-gradient text-black font-bold rounded-xl hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all mt-4">
+                        Build Your KG Apex
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNOLOGY SECTION -->
+    <section id="technology" class="py-28 px-6 lg:px-16 bg-charcoal relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-champagne font-semibold">Intelligent Horizon</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-light text-white mt-2">Next-Generation Technology</h2>
+                <p class="text-gray-400 mt-3 text-sm font-light">Seamlessly integrating artificial intelligence with effortless luxury mobility.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tech Card 1 -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-champagne/40 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-champagne/10 text-champagne flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-white font-light mb-3">AI Autonomous Cockpit</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed font-light">
+                        Adapts seat ergonomics, cabin temperature, and drive dynamics by predicting driver preference using biometric sensors.
+                    </p>
+                </div>
+
+                <!-- Tech Card 2 -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-champagne/40 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-champagne/10 text-champagne flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-white font-light mb-3">360° LiDAR Vision</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed font-light">
+                        High-precision laser mapping detects road obstacles up to 300 meters ahead in zero-visibility weather conditions.
+                    </p>
+                </div>
+
+                <!-- Tech Card 3 -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-champagne/40 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-champagne/10 text-champagne flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-white font-light mb-3">Over-The-Air Cloud System</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed font-light">
+                        Continuous software evolution ensures your KG vehicle receives performance enhancements and new features overnight.
+                    </p>
+                </div>
+
+                <!-- Tech Card 4 -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-champagne/40 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-champagne/10 text-champagne flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-car-side"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-white font-light mb-3">Adaptive Air Suspension</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed font-light">
+                        Scans terrain 1,000 times per second to actively adjust dampening for an effortless carpet-ride effect.
+                    </p>
+                </div>
+
+                <!-- Tech Card 5 -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-champagne/40 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-champagne/10 text-champagne flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-microphone text-xl"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-white font-light mb-3">Natural Voice Assistant</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed font-light">
+                        Conversational voice interface capable of managing complex multi-step navigation and luxury cabin controls.
+                    </p>
+                </div>
+
+                <!-- Tech Card 6 -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-champagne/40 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-champagne/10 text-champagne flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-white font-light mb-3">Ultra-Fast 800V Charging</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed font-light">
+                        Replenish 80% battery capacity in just 18 minutes using ultra-high speed DC fast architecture.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE KG COLLECTION SECTION -->
+    <section id="models" class="py-28 px-6 lg:px-16 bg-obsidian relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.3em] text-champagne font-semibold">Vehicle Fleet</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-light text-white mt-2">The KG Collection</h2>
+                </div>
+                <!-- Carousel Navigation Controls -->
+                <div class="flex items-center gap-3 mt-6 md:mt-0">
+                    <button onclick="scrollCollection(-1)" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-champagne hover:text-champagne transition-colors">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button onclick="scrollCollection(1)" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-champagne hover:text-champagne transition-colors">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Model Cards Carousel -->
+            <div id="collection-carousel" class="flex gap-8 overflow-x-auto no-scrollbar scroll-smooth pb-8">
+                <!-- Model 1: KG Apex -->
+                <div class="min-w-[320px] sm:min-w-[380px] glass-panel rounded-3xl overflow-hidden border border-white/10 hover:border-champagne/40 transition-all flex-shrink-0 group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="kg.png" alt="KG Apex" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=800&auto=format&fit=crop'">
+                        <span class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] uppercase text-champagne font-semibold">Flagship</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-3xl text-white font-light">KG Apex</h3>
+                        <p class="text-xs text-champagne uppercase tracking-widest mt-1">Luxury Performance Sedan</p>
+                        <div class="grid grid-cols-2 gap-4 py-4 my-4 border-y border-white/10 text-xs">
+                            <div><span class="text-gray-400 block">Range</span> <span class="text-white font-semibold">650 km</span></div>
+                            <div><span class="text-gray-400 block">0-100 km/h</span> <span class="text-white font-semibold">3.8 s</span></div>
+                        </div>
+                        <button onclick="showModelDetails('KG Apex', 'Luxury Performance Sedan', '650 km', '3.8 sec', '520 HP')" class="w-full py-3 text-xs uppercase tracking-widest text-champagne hover:text-white flex items-center justify-center gap-2 group-hover:gap-4 transition-all">
+                            Explore Model <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Model 2: KG Titan -->
+                <div class="min-w-[320px] sm:min-w-[380px] glass-panel rounded-3xl overflow-hidden border border-white/10 hover:border-champagne/40 transition-all flex-shrink-0 group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop" alt="KG Titan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <span class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] uppercase text-champagne font-semibold">Full-Size SUV</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-3xl text-white font-light">KG Titan</h3>
+                        <p class="text-xs text-champagne uppercase tracking-widest mt-1">Flagship Luxury SUV</p>
+                        <div class="grid grid-cols-2 gap-4 py-4 my-4 border-y border-white/10 text-xs">
+                            <div><span class="text-gray-400 block">Range</span> <span class="text-white font-semibold">600 km</span></div>
+                            <div><span class="text-gray-400 block">0-100 km/h</span> <span class="text-white font-semibold">4.2 s</span></div>
+                        </div>
+                        <button onclick="showModelDetails('KG Titan', 'Flagship Luxury SUV', '600 km', '4.2 sec', '600 HP')" class="w-full py-3 text-xs uppercase tracking-widest text-champagne hover:text-white flex items-center justify-center gap-2 group-hover:gap-4 transition-all">
+                            Explore Model <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Model 3: KG Spectra -->
+                <div class="min-w-[320px] sm:min-w-[380px] glass-panel rounded-3xl overflow-hidden border border-white/10 hover:border-champagne/40 transition-all flex-shrink-0 group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800&auto=format&fit=crop" alt="KG Spectra" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <span class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] uppercase text-champagne font-semibold">Coupe GT</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-3xl text-white font-light">KG Spectra</h3>
+                        <p class="text-xs text-champagne uppercase tracking-widest mt-1">Electric Grand Tourer</p>
+                        <div class="grid grid-cols-2 gap-4 py-4 my-4 border-y border-white/10 text-xs">
+                            <div><span class="text-gray-400 block">Range</span> <span class="text-white font-semibold">700 km</span></div>
+                            <div><span class="text-gray-400 block">0-100 km/h</span> <span class="text-white font-semibold">3.1 s</span></div>
+                        </div>
+                        <button onclick="showModelDetails('KG Spectra', 'Electric Grand Tourer', '700 km', '3.1 sec', '720 HP')" class="w-full py-3 text-xs uppercase tracking-widest text-champagne hover:text-white flex items-center justify-center gap-2 group-hover:gap-4 transition-all">
+                            Explore Model <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Model 4: KG Nova -->
+                <div class="min-w-[320px] sm:min-w-[380px] glass-panel rounded-3xl overflow-hidden border border-white/10 hover:border-champagne/40 transition-all flex-shrink-0 group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop" alt="KG Nova" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <span class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] uppercase text-champagne font-semibold">Executive</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-3xl text-white font-light">KG Nova</h3>
+                        <p class="text-xs text-champagne uppercase tracking-widest mt-1">Premium Electric Sedan</p>
+                        <div class="grid grid-cols-2 gap-4 py-4 my-4 border-y border-white/10 text-xs">
+                            <div><span class="text-gray-400 block">Range</span> <span class="text-white font-semibold">580 km</span></div>
+                            <div><span class="text-gray-400 block">0-100 km/h</span> <span class="text-white font-semibold">4.0 s</span></div>
+                        </div>
+                        <button onclick="showModelDetails('KG Nova', 'Premium Electric Sedan', '580 km', '4.0 sec', '480 HP')" class="w-full py-3 text-xs uppercase tracking-widest text-champagne hover:text-white flex items-center justify-center gap-2 group-hover:gap-4 transition-all">
+                            Explore Model <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIFESTYLE & EXPERIENCE SECTION -->
+    <section id="experience" class="py-28 px-6 lg:px-16 bg-charcoal relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-champagne font-semibold">Experience KG</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-light text-white mt-2">More Than A Motor Car</h2>
+                <p class="text-gray-400 mt-3 text-sm font-light">A lifestyle defined by freedom, elegance, and effortless luxury travel.</p>
+            </div>
+
+            <!-- Lifestyle Image Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="relative h-96 rounded-2xl overflow-hidden group border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop" alt="Modern Cityscape" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="text-[10px] uppercase tracking-widest text-champagne">Urban Splendor</span>
+                        <h4 class="font-serif text-2xl text-white font-light">Metropolitan Night Drive</h4>
+                    </div>
+                </div>
+
+                <div class="relative h-96 rounded-2xl overflow-hidden group border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800&auto=format&fit=crop" alt="Mountain Pass" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="text-[10px] uppercase tracking-widest text-champagne">Alpine Elevation</span>
+                        <h4 class="font-serif text-2xl text-white font-light">Mountain Pass Escape</h4>
+                    </div>
+                </div>
+
+                <div class="relative h-96 rounded-2xl overflow-hidden group border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop" alt="Coastal Road" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="text-[10px] uppercase tracking-widest text-champagne">Coastal Horizons</span>
+                        <h4 class="font-serif text-2xl text-white font-light">Riviera Sunsets</h4>
+                    </div>
+                </div>
+
+                <div class="relative h-96 rounded-2xl overflow-hidden group border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Architectural Sanctuary" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="text-[10px] uppercase tracking-widest text-champagne">Architectural Harmony</span>
+                        <h4 class="font-serif text-2xl text-white font-light">Private Estates</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRAFTSMANSHIP STORYTELLING SECTION -->
+    <section class="py-28 px-6 lg:px-16 bg-obsidian relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs uppercase tracking-[0.3em] text-champagne font-semibold">Master Artisans</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-light text-white leading-tight">Crafted by Hand.<br>Designed for You.</h2>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed">
+                        Every interior veneer is selected from sustainably sourced open-pore hardwoods, individually book-matched by master craftsmen in our dedicated atelier.
+                    </p>
+                    <div class="space-y-4 pt-2">
+                        <div class="p-4 glass-panel rounded-xl border-l-2 border-champagne">
+                            <h4 class="font-serif text-lg text-white">Hand-Stitched Leatherwork</h4>
+                            <p class="text-xs text-gray-400 mt-1">Saddle stitching executed using custom waxed thread for lifetime resilience.</p>
+                        </div>
+                        <div class="p-4 glass-panel rounded-xl border-l-2 border-champagne">
+                            <h4 class="font-serif text-lg text-white">Precision Knurled Metalwork</h4>
+                            <p class="text-xs text-gray-400 mt-1">Aluminum controls feature tactile diamond-pattern rotary beveling.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?q=80&w=800&auto=format&fit=crop" alt="Leather Stitching" class="rounded-2xl w-full h-64 object-cover border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop" alt="Dashboard Craft" class="rounded-2xl w-full h-64 object-cover border border-white/10 mt-8">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENQUIRY SECTION -->
+    <section id="enquire" class="py-28 px-6 lg:px-16 bg-charcoal relative">
+        <div class="max-w-4xl mx-auto glass-panel p-8 sm:p-12 lg:p-16 rounded-3xl border border-white/10">
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase tracking-[0.3em] text-champagne font-semibold">Private Consultation</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-light text-white mt-2">Begin Your Journey</h2>
+                <p class="text-gray-400 mt-3 text-sm font-light">Allow a KG Automotive Specialist to curate your bespoke commission.</p>
+            </div>
+
+            <!-- Form -->
+            <form id="enquiry-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-xs uppercase tracking-wider text-gray-300 block mb-2">First Name *</label>
+                        <input type="text" required class="w-full bg-obsidian/80 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white focus:border-champagne outline-none transition-colors" placeholder="Alexander">
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase tracking-wider text-gray-300 block mb-2">Last Name *</label>
+                        <input type="text" required class="w-full bg-obsidian/80 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white focus:border-champagne outline-none transition-colors" placeholder="Vance">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-xs uppercase tracking-wider text-gray-300 block mb-2">Email Address *</label>
+                        <input type="email" required class="w-full bg-obsidian/80 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white focus:border-champagne outline-none transition-colors" placeholder="a.vance@sovereign.com">
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase tracking-wider text-gray-300 block mb-2">Phone Number</label>
+                        <input type="tel" class="w-full bg-obsidian/80 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white focus:border-champagne outline-none transition-colors" placeholder="+1 (555) 019-2831">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-xs uppercase tracking-wider text-gray-300 block mb-2">Country *</label>
+                        <select required class="w-full bg-obsidian/80 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white focus:border-champagne outline-none transition-colors">
+                            <option value="">Select Country</option>
+                            <option value="United States">United States</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Germany">Germany</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Japan">Japan</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase tracking-wider text-gray-300 block mb-2">Model of Interest *</label>
+                        <select required class="w-full bg-obsidian/80 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white focus:border-champagne outline-none transition-colors">
+                            <option value="KG Apex">KG Apex (Flagship Sedan)</option>
+                            <option value="KG Titan">KG Titan (Luxury SUV)</option>
+                            <option value="KG Spectra">KG Spectra (Grand Tourer)</option>
+                            <option value="KG Nova">KG Nova (Executive Sedan)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-xs uppercase tracking-wider text-gray-300 block mb-2">Message or Custom Requirements</label>
+                    <textarea rows="4" class="w-full bg-obsidian/80 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white focus:border-champagne outline-none transition-colors" placeholder="Share your preferences for personal consultation or test drive arrangements..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full text-xs uppercase tracking-[0.25em] py-4 bg-gold-gradient text-black font-bold rounded-xl hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] transition-all">
+                    Send Enquiry
+                </button>
+            </form>
+
+            <!-- Success Message Box -->
+            <div id="enquiry-success" class="hidden text-center py-12 space-y-4">
+                <div class="w-16 h-16 bg-champagne/20 text-champagne rounded-full flex items-center justify-center text-3xl mx-auto border border-champagne">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 class="font-serif text-3xl text-white">Thank You</h3>
+                <p class="text-gray-300 max-w-md mx-auto text-sm font-light">
+                    Your request has been received. A dedicated KG Automotive specialist will contact you shortly to coordinate your consultation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEALER / SPECIALIST LOCATOR -->
+    <section class="py-20 px-6 lg:px-16 bg-obsidian border-t border-white/10">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="text-xs uppercase tracking-[0.3em] text-champagne font-semibold">Global Atelier Network</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-light text-white mt-2">Find Your KG Specialist</h2>
+
+            <div class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto mt-8">
+                <select id="locator-country" onchange="updateCities()" class="flex-1 bg-charcoal border border-white/20 rounded-xl px-4 py-3 text-xs text-white outline-none focus:border-champagne">
+                    <option value="USA">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="UAE">United Arab Emirates</option>
+                    <option value="CH">Switzerland</option>
+                </select>
+                <select id="locator-city" class="flex-1 bg-charcoal border border-white/20 rounded-xl px-4 py-3 text-xs text-white outline-none focus:border-champagne">
+                    <option value="New York">New York Atelier</option>
+                    <option value="Los Angeles">Beverly Hills Salon</option>
+                </select>
+                <button onclick="findSpecialist()" class="px-6 py-3 bg-champagne text-black text-xs uppercase tracking-widest font-semibold rounded-xl hover:bg-champagne-light transition-colors">
+                    Locate
+                </button>
+            </div>
+
+            <div id="locator-result" class="mt-8 glass-panel p-6 rounded-2xl hidden max-w-xl mx-auto text-left border border-champagne/30">
+                <h4 id="locator-name" class="font-serif text-xl text-white font-light">KG Atelier New York</h4>
+                <p id="locator-address" class="text-xs text-gray-400 mt-1">57th Street & Fifth Avenue, Manhattan, NY 10022</p>
+                <p id="locator-phone" class="text-xs text-champagne mt-2 font-mono">+1 (212) 555-0199</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-gray-400 py-16 px-6 lg:px-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
+            <!-- Brand Column -->
+            <div class="lg:col-span-2 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 border border-champagne/40 rounded-full flex items-center justify-center">
+                        <span class="font-serif text-sm font-bold text-gold-gradient">KG</span>
+                    </div>
+                    <span class="font-serif tracking-[0.3em] text-white text-lg font-semibold">AUTOMOTIVE</span>
+                </div>
+                <p class="text-xs text-gray-400 max-w-sm font-light leading-relaxed">
+                    Crafting futuristic luxury automobiles defined by uncompromising performance, bespoke art, and sustainable innovation.
+                </p>
+                <p class="text-xs text-champagne font-serif italic pt-2">Drive a Brighter Tomorrow</p>
+            </div>
+
+            <!-- Navigation Links -->
+            <div>
+                <h5 class="text-xs uppercase tracking-[0.2em] text-white font-semibold mb-4">Models</h5>
+                <ul class="space-y-2 text-xs font-light">
+                    <li><a href="#apex" class="hover:text-champagne transition-colors">KG Apex</a></li>
+                    <li><a href="#models" class="hover:text-champagne transition-colors">KG Titan</a></li>
+                    <li><a href="#models" class="hover:text-champagne transition-colors">KG Spectra</a></li>
+                    <li><a href="#models" class="hover:text-champagne transition-colors">KG Nova</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="text-xs uppercase tracking-[0.2em] text-white font-semibold mb-4">Brand</h5>
+                <ul class="space-y-2 text-xs font-light">
+                    <li><a href="#bespoke" class="hover:text-champagne transition-colors">Bespoke Studio</a></li>
+                    <li><a href="#technology" class="hover:text-champagne transition-colors">Technology</a></li>
+                    <li><a href="#experience" class="hover:text-champagne transition-colors">Experience</a></li>
+                    <li><a href="#story" class="hover:text-champagne transition-colors">About KG</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="text-xs uppercase tracking-[0.2em] text-white font-semibold mb-4">Connect</h5>
+                <div class="flex space-x-4 text-lg text-gray-300 mb-4">
+                    <a href="#" class="hover:text-champagne transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-champagne transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="hover:text-champagne transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <p class="text-[11px] text-gray-400">Atelier Concierge:<br><span class="text-white">+1 (800) 555-KG-AUTO</span></p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-400">
+            <p>© 2026 KG Automotive. All rights reserved. Fictional Luxury Automobile Concept.</p>
+            <div class="flex space-x-6 mt-4 sm:mt-0">
+                <a href="#" class="hover:text-champagne transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-champagne transition-colors">Terms of Experience</a>
+                <a href="#" class="hover:text-champagne transition-colors">Cookie Preferences</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS & OVERLAYS -->
+    <!-- Model Details Modal -->
+    <div id="model-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-6 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-panel p-8 rounded-3xl max-w-lg w-full border border-champagne/40 relative">
+            <button onclick="closeModelModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <span class="text-xs uppercase tracking-[0.25em] text-champagne font-semibold">Model Specification</span>
+            <h3 id="modal-model-title" class="font-serif text-3xl text-white mt-1">KG Apex</h3>
+            <p id="modal-model-subtitle" class="text-xs text-gray-400 uppercase tracking-widest mt-1">Luxury Performance Sedan</p>
+
+            <div class="grid grid-cols-3 gap-4 my-6 p-4 glass-panel rounded-2xl text-center">
+                <div>
+                    <span class="text-[10px] text-gray-400 uppercase block">Range</span>
+                    <span id="modal-model-range" class="font-serif text-lg text-white">650 km</span>
+                </div>
+                <div>
+                    <span class="text-[10px] text-gray-400 uppercase block">0-100 km/h</span>
+                    <span id="modal-model-acc" class="font-serif text-lg text-white">3.8 s</span>
+                </div>
+                <div>
+                    <span class="text-[10px] text-gray-400 uppercase block">Power</span>
+                    <span id="modal-model-hp" class="font-serif text-lg text-white">520 HP</span>
+                </div>
+            </div>
+
+            <p class="text-xs text-gray-300 leading-relaxed font-light mb-6">
+                Engineered with dual vector electric drive motors, handcrafted leather interior appointments, and adaptive chassis control.
+            </p>
+
+            <a href="#bespoke" onclick="closeModelModal()" class="block text-center w-full py-3.5 bg-gold-gradient text-black font-semibold text-xs uppercase tracking-widest rounded-xl">
+                Configure This Model
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Navigation Bar Scroll Adaptation
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('glass-panel', 'py-4', 'shadow-2xl');
+                header.classList.remove('py-6');
+            } else {
+                header.classList.remove('glass-panel', 'py-4', 'shadow-2xl');
+                header.classList.add('py-6');
+            }
+        });
+
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function openMenu() {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto';
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+        mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Bespoke Live Configurator Logic
+        let currentPaint = 'Obsidian Black';
+        let currentInterior = 'Deep Ebony';
+        let currentWheels = '22" Forged Multi-Spoke';
+
+        function setPaint(colorHex, name) {
+            document.getElementById('car-body').setAttribute('fill', colorHex);
+            document.getElementById('summary-paint').innerText = name;
+            currentPaint = name;
+        }
+
+        function setInterior(name) {
+            document.getElementById('summary-interior').innerText = name;
+            currentInterior = name;
+        }
+
+        function setWheels(wheelName) {
+            document.getElementById('summary-wheels').innerText = wheelName;
+            currentWheels = wheelName;
+            const rim1 = document.getElementById('wheel-rim-1');
+            const rim2 = document.getElementById('wheel-rim-2');
+            
+            if (wheelName.includes('Titanium')) {
+                rim1.setAttribute('stroke', '#94A3B8');
+                rim2.setAttribute('stroke', '#94A3B8');
+            } else if (wheelName.includes('Matte')) {
+                rim1.setAttribute('stroke', '#333333');
+                rim2.setAttribute('stroke', '#333333');
+            } else {
+                rim1.setAttribute('stroke', '#E2E8F0');
+                rim2.setAttribute('stroke', '#E2E8F0');
+            }
+        }
+
+        function setGlow(rgba, hex) {
+            const glow = document.getElementById('car-glow');
+            const trim = document.getElementById('car-trim');
+            glow.style.backgroundColor = rgba;
+            glow.style.boxShadow = `0 0 40px ${rgba}`;
+            trim.setAttribute('stroke', hex);
+        }
+
+        function openConfigModal() {
+            alert(`Your Bespoke KG Apex Configuration:\n\nExterior: ${currentPaint}\nInterior: ${currentInterior}\nWheels: ${currentWheels}\n\nA KG Specialist will receive these parameters with your enquiry.`);
+        }
+
+        // Design Gallery Data & Switcher
+        const designData = {
+            grille: {
+                title: "Illuminated Obsidian Grille",
+                tag: "Signature Motif",
+                desc: "Features micro-laser etched geometric patterns integrated into an active shutter system that adjusts continuously for maximum aerodynamic cooling and striking illuminated road presence.",
+                img: "kg.png",
+                feat1: "Active aerodynamic air shutters",
+                feat2: "Signature backlit KG emblem",
+                feat3: "High-gloss obsidian dark titanium trim"
+            },
+            headlights: {
+                title: "Crystal Matrix LED Optics",
+                tag: "Illumination Precision",
+                desc: "Composed of 1.3 million micro-mirrors per headlight unit, casting glare-free high beams that dynamically carve light around oncoming traffic.",
+                img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1200&auto=format&fit=crop",
+                feat1: "1.3 Million micro-mirror precision",
+                feat2: "Adaptive cornering beam light projection",
+                feat3: "Custom welcome lighting choreography"
+            },
+            wheels: {
+                title: "22-Inch Forged Alloy Wheels",
+                tag: "Crafted Engineering",
+                desc: "Precision milled from aerospace-grade aluminum to minimize un-sprung mass while providing optimized brake cooling and aesthetic presence.",
+                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1200&auto=format&fit=crop",
+                feat1: "Aerospace 6061 forged aluminum alloy",
+                feat2: "Self-leveling KG center wheel caps",
+                feat3: "Bespoke acoustic tire sound damping"
+            },
+            rear: {
+                title: "Full-Width OLED Lightbar",
+                tag: "Sculpted Tailgate",
+                desc: "A continuous three-dimensional glass blade incorporating organic LEDs that provide fluid sequence animations upon arrival and departure.",
+                img: "kg.png",
+                feat1: "3D Seamless OLED glass blade",
+                feat2: "Sequential dynamic turn signals",
+                feat3: "Integrated active rear diffuser"
+            }
+        };
+
+        function switchDesignTab(key) {
+            const data = designData[key];
+            const btnList = document.querySelectorAll('.design-tab-btn');
+            
+            btnList.forEach(btn => {
+                btn.classList.remove('bg-champagne', 'text-black', 'border-champagne', 'font-semibold');
+                btn.classList.add('border-white/20', 'text-gray-300');
+            });
+
+            const activeBtn = document.getElementById(`tab-${key}`);
+            activeBtn.classList.add('bg-champagne', 'text-black', 'border-champagne', 'font-semibold');
+            activeBtn.classList.remove('border-white/20', 'text-gray-300');
+
+            const display = document.getElementById('design-display');
+            display.style.opacity = '0.3';
+            
+            setTimeout(() => {
+                document.getElementById('design-title').innerText = data.title;
+                document.getElementById('design-tag').innerText = data.tag;
+                document.getElementById('design-desc').innerText = data.desc;
+                document.getElementById('design-img').src = data.img;
+                document.getElementById('design-feat-1').innerText = data.feat1;
+                document.getElementById('design-feat-2').innerText = data.feat2;
+                document.getElementById('design-feat-3').innerText = data.feat3;
+                display.style.opacity = '1';
+            }, 300);
+        }
+
+        // Animated Performance Counter on Viewport Scroll
+        let countersAnimated = false;
+        function animateCounters() {
+            const counterElements = document.querySelectorAll('.counter-val');
+            counterElements.forEach(el => {
+                const target = parseFloat(el.getAttribute('data-target'));
+                const isDecimal = target % 1 !== 0;
+                let current = 0;
+                const increment = target / 50;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    el.innerText = isDecimal ? current.toFixed(1) : Math.floor(current);
+                }, 30);
+            });
+        }
+
+        const apexSection = document.getElementById('apex');
+        window.addEventListener('scroll', () => {
+            if (!countersAnimated && apexSection) {
+                const rect = apexSection.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.75) {
+                    animateCounters();
+                    countersAnimated = true;
+                }
+            }
+        });
+
+        // Collection Carousel Scroll Controls
+        function scrollCollection(direction) {
+            const container = document.getElementById('collection-carousel');
+            container.scrollBy({ left: direction * 380, behavior: 'smooth' });
+        }
+
+        // Model Specification Modal Logic
+        function showModelDetails(title, subtitle, range, acc, hp) {
+            document.getElementById('modal-model-title').innerText = title;
+            document.getElementById('modal-model-subtitle').innerText = subtitle;
+            document.getElementById('modal-model-range').innerText = range;
+            document.getElementById('modal-model-acc').innerText = acc;
+            document.getElementById('modal-model-hp').innerText = hp;
+            
+            const modal = document.getElementById('model-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeModelModal() {
+            const modal = document.getElementById('model-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Enquiry Form Submission Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('enquiry-form').classList.add('hidden');
+            document.getElementById('enquiry-success').classList.remove('hidden');
+        }
+
+        // Dealer Locator Logic
+        const cityMap = {
+            USA: [
+                { name: "KG Atelier New York", city: "New York", address: "57th Street & 5th Ave, Manhattan, NY 10022", phone: "+1 (212) 555-0199" },
+                { name: "KG Salon Beverly Hills", city: "Los Angeles", address: "Rodeo Drive, Beverly Hills, CA 90210", phone: "+1 (310) 555-0144" }
+            ],
+            UK: [
+                { name: "KG Atelier Mayfair", city: "London", address: "Berkeley Square, Mayfair, London W1J 6BR", phone: "+44 20 7946 0912" }
+            ],
+            UAE: [
+                { name: "KG Flagship Dubai", city: "Dubai", address: "Downtown Dubai, Near Burj Khalifa, Dubai", phone: "+971 4 312 9000" }
+            ],
+            CH: [
+                { name: "KG Geneva Private Salon", city: "Geneva", address: "Rue du Rhône, 1204 Genève", phone: "+41 22 819 3000" }
+            ]
+        };
+
+        function updateCities() {
+            const country = document.getElementById('locator-country').value;
+            const citySelect = document.getElementById('locator-city');
+            citySelect.innerHTML = '';
+            
+            if (cityMap[country]) {
+                cityMap[country].forEach(loc => {
+                    const opt = document.createElement('option');
+                    opt.value = loc.name;
+                    opt.innerText = `${loc.name} (${loc.city})`;
+                    citySelect.appendChild(opt);
+                });
+            }
+        }
+
+        function findSpecialist() {
+            const country = document.getElementById('locator-country').value;
+            const selectedName = document.getElementById('locator-city').value;
+            const resultBox = document.getElementById('locator-result');
+            
+            const match = cityMap[country]?.find(loc => loc.name === selectedName);
+            if (match) {
+                document.getElementById('locator-name').innerText = match.name;
+                document.getElementById('locator-address').innerText = match.address;
+                document.getElementById('locator-phone').innerText = match.phone;
+                resultBox.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
